@@ -1,0 +1,444 @@
+#ego.txt
+
+# This file is used to initialize the 'lib / Data / ego_item.raw' file, which is
+# used to initialize the 'ego - Item' information for the Angband game.
+
+# Do not modify this file unless you know exactly what you are doing,
+# unless you wish to risk possible system crashes and broken savefiles.
+# After modifying this file, delete the 'lib / Data / ego_item.raw' file.
+
+# The ego-item indexes are defined in 'defines.h', and must not be changed
+# or savefile compatibility will be lost.
+
+# Note that several 'ego - Item' types may share the same 'textual; Name',
+# such as with 'Armor of Resistance' and 'Shield; of; Resistance'.
+
+# === Understanding ego_item.txt ===
+
+# N: serial number : ego type
+# X: rating : xtra
+# C: max to-hit : max to-dam : max to-ac : pval
+# W: depth : rarity : weight : cost
+# T: tval : min_sval : max_sval
+# F: flag | flag | etc
+
+# 'N' indicates the beginning of an entry. The serial number must
+# increase for each new item.
+
+# 'X' is for extra information - Rating affects level feelings.
+# The xtra value determines random extra flags for the ego-item.
+
+# 0 - Random None
+# 1 - Random Stat Sustain
+# 2 - Random High Resist
+# 3 - Random Ability
+# 4 - Random Immunity
+# 5 - Random Stat Increase
+# 6 - Random Weapon Slay
+# 7 - Random Weapon Kill
+# 8 - Random Weapon Elemental Brand
+# 9 - Random Low Resist
+# 10- Random Nativity
+
+# 'C' is for creation bonusses - maximum to-hit, to-dam, to-ac, and
+# pval. Cursed ego-items will negate the given value.
+
+# 'W' is for extra information. Depth is the depth the object is
+# normally found at, rarity determines how common the object is,
+# weight is in tenth-pounds and cost is the items value.
+
+# 'F' is for flags. These are fairly self-explanatory. As many F:
+# lines may be used as are needed to specify all the flags and flags
+# are separated by the '|' symbol.
+
+# 'T' is for possible 'tval' and 'sval' values of the base-item.
+# Up to three 'T' entries are possible for a single object. The
+# ego-item can only be generated from items of this tval, with sval
+# in the specified range.
+
+
+# Version stamp (required)
+
+# Accented characters may be used in an ego item/s name.  Use the proper code,
+# enclosed between square brackets, to enter an accented character. For example:
+# Lothl['o]rien or Lothl[oacute]rien are both valid ways to get an acute accent
+# on the o in Lothlorien . All valid codes can be found in util.c.
+
+V:1.0.0
+
+
+
+##### Armor #####
+
+N:2:of Stealth
+X:10:0
+W:0:3:0:1000
+C:0:0:5:3
+T:36:0:6
+T:36:8:8
+F:STEALTH | IGNORE_ACID
+
+
+N:3:of Resistance
+X:20:0 
+W:15:8:0:10000
+C:0:0:10:0
+T:36:2:2
+T:37:18:18
+F:RES_ACID | RES_ELEC | RES_FIRE | RES_COLD | IGNORE_ACID
+F:IGNORE_ELEC | IGNORE_FIRE | IGNORE_COLD
+
+
+N:4:of Resist Acid
+X:10:0
+W:0:2:0:1000
+C:0:0:5:0
+T:37:0:12
+F:RES_ACID | IGNORE_ACID
+
+
+##### Shields #####
+
+N:5:of Resist Fire
+X:10:0
+W:0:2:0:1000
+C:0:0:5:0
+T:34:0:99
+F:RES_FIRE | IGNORE_FIRE | IGNORE_ACID
+
+
+N:6:of Resist Light and Dark
+X:20:0
+W:10:2:0:1000
+C:0:0:10:0
+T:34:0:99
+F:RES_DARK | RES_LIGHT | IGNORE_ACID
+
+
+##### Weapons #####
+
+
+N:35:(Holy Avenger)
+X:30:0
+W:10:16:0:20000
+C:6:6:4:0
+T:21:0:99
+T:22:0:99
+T:23:0:99
+F:SLAY_UNDEAD | SLAY_EVIL | RES_FEAR | HOLD_LIFE
+F:SEE_INVIS | BLESSED | IGNORE_ACID
+
+
+N:37:(Defender)
+X:25:0
+W:10:16:0:15000
+C:4:4:8:4
+T:21:0:99
+T:22:0:99
+T:23:0:99
+F:RES_ACID | RES_ELEC | RES_FIRE | RES_COLD
+F:FEATHER | FREE_ACT | IGNORE_ACID
+F:IGNORE_ELEC | IGNORE_FIRE | IGNORE_COLD
+
+
+# N: serial number : ego type
+# X: rating : xtra
+# C: max to-hit : max to-dam : max to-ac : pval
+# W: depth : rarity : weight : cost
+# T: tval : min_sval : max_sval
+# F: flag | flag | etc
+
+
+N:38:(Magestaff)
+X:25:0
+W:10:10:0:5000
+C:0:0:8:3
+T:21:3:3
+F:INT | WIS | SUST_WIS | SUST_INT | REGEN
+F:IGNORE_ACID | IGNORE_ELEC | IGNORE_FIRE | IGNORE_COLD
+
+
+N:39:of Extra Attacks
+X:20:0 
+W:20:12:0:10000
+C:2:2:0:1
+T:21:0:99
+T:22:0:99
+T:23:0:99
+F:BLOWS | HIDE_TYPE | IGNORE_ACID
+
+
+N:41:(Frost Brand)
+X:20:0
+W:5:2:0:5000
+C:2:2:0:0
+T:21:0:99
+T:22:0:99
+T:23:0:99
+F:BRAND_COLD | IGNORE_ACID
+
+
+N:42:(Flame Tongue)
+X:20:0
+W:5:2:0:5000
+C:2:2:0:0
+T:21:0:99
+T:22:0:99
+T:23:0:99
+F:BRAND_FIRE | IGNORE_ACID
+
+
+N:43:of Slay Orc
+X:18:0
+W:0:1:0:3000
+C:0:0:0:0
+T:21:0:99
+T:22:0:99
+T:23:0:99
+F:SLAY_ORC | IGNORE_ACID
+
+
+N:44:of Slay Giant
+X:18:0
+W:10:1:0:3000
+C:0:0:0:0
+T:21:0:99
+T:22:0:99
+T:23:0:99
+F:SLAY_GIANT | IGNORE_ACID
+
+
+N:45:of Slay Troll
+X:18:0
+W:10:1:0:3000
+C:0:0:0:0
+T:21:0:99
+T:22:0:99
+T:23:0:99
+F:SLAY_TROLL | IGNORE_ACID
+
+
+N:46:of Slay Animal
+X:18:0
+W:0:1:0:3000
+C:0:0:0:0
+T:21:0:99
+T:22:0:99
+T:23:0:99
+F:SLAY_ANIMAL | IGNORE_ACID
+
+
+##### Helms/Crowns #####
+
+
+N:54:of Resist Lightning
+X:10:0
+W:0:2:0:1000
+C:0:0:5:0
+T:32:0:99
+F:RES_ELEC | IGNORE_ACID
+
+
+N:55:of Telepathy
+X:20:0 
+W:20:6:0:30000
+C:0:0:0:0
+T:32:0:99
+T:33:0:99
+F:TELEPATHY | IGNORE_ACID
+
+
+N:58:of Magic
+X:13:0 
+W:10:2:0:1000
+C:0:0:0:2
+T:32:0:99
+T:33:0:99
+F:INT | SUST_INT | WIS | SUST_WIS | IGNORE_ACID
+
+
+N:71:of See Invisible
+X:8:0 
+W:5:2:0:1000
+C:0:0:0:0 
+T:33:0:99
+T:32:0:99
+F:SEE_INVIS | IGNORE_ACID
+
+
+##### Cloaks #####
+
+
+N:78:of Stealth
+X:10:0 
+W:0:1:0:500
+C:0:0:0:3
+T:35:0:99
+F:STEALTH | IGNORE_ACID
+
+
+N:79:of Resist Cold
+X:10:0
+W:0:2:0:1000
+C:0:0:5:0
+T:35:0:99
+F:RES_COLD | IGNORE_ACID
+
+
+##### Bows/Crossbows/Slings #####
+
+N:84:of Extra Might
+X:20:0 
+W:10:2:0:20000
+C:5:10:0:2
+T:19:0:99
+F:MIGHT | HIDE_TYPE | IGNORE_ACID
+
+
+N:88:of Extra Shots
+X:20:0 
+W:15:4:0:20000
+C:10:5:0:2
+T:19:0:99
+F:SHOTS | HIDE_TYPE | IGNORE_ACID
+
+
+##### Ammo #####
+
+
+N:95:(Flaming)
+X:10:0 
+W:5:9:0:50
+C:0:0:0:0
+T:16:0:99
+T:17:0:99
+T:18:0:99
+F:BRAND_FIRE | IGNORE_FIRE
+
+
+N:96:(Poisoned)
+X:10:0 
+W:5:9:0:45
+C:0:0:0:0
+T:16:0:99
+T:17:0:99
+T:18:0:99
+F:BRAND_POIS
+
+
+N:98:of Slay Dragon
+X:10:0 
+W:0:8:0:40
+C:0:0:0:0
+T:16:0:99
+T:17:0:99
+T:18:0:99
+F:SLAY_DRAGON
+
+
+N:101:of Slay Undead
+X:10:0 
+W:0:8:0:25
+C:0:0:0:0
+T:16:0:99
+T:17:0:99
+T:18:0:99
+F:SLAY_UNDEAD
+
+
+N:102:of Slay Demon
+X:10:0 
+W:0:8:0:25
+C:0:0:0:0
+T:16:0:99
+T:17:0:99
+T:18:0:99
+F:SLAY_DEMON
+
+
+N:106:of Slay Evil
+X:10:0 
+W:0:6:0:20
+C:0:0:0:0
+T:16:0:2
+T:17:0:2
+T:18:0:2
+F:SLAY_EVIL
+
+
+##### Boots #####
+
+N:111:of Speed
+X:25:0 
+W:40:40:0:100000
+C:0:0:0:10
+T:30:0:99
+F:SPEED | IGNORE_ACID | IGNORE_FIRE | HIDE_TYPE
+
+
+N:113:of Free Action
+X:15:0 
+W:0:8:0:1000
+C:0:0:0:0
+T:30:0:99
+F:FREE_ACT | IGNORE_ACID | IGNORE_FIRE
+
+
+N:114:of Stealth
+X:16:0 
+W:0:6:0:500
+C:0:0:0:3
+T:30:0:99
+F:STEALTH | HIDE_TYPE | IGNORE_ACID | IGNORE_FIRE
+
+
+##### Gloves #####
+
+N:122:of Power
+X:22:0 
+W:10:4:0:5000
+C:5:5:0:4
+T:31:0:99
+F:STR | CON | HIDE_TYPE | SHOW_MODS | IGNORE_ACID | IGNORE_FIRE
+
+
+N:124:of Agility
+X:14:0 
+W:0:3:0:3000
+C:0:0:0:4
+T:31:0:99
+F:DEX | HIDE_TYPE | IGNORE_ACID | IGNORE_FIRE
+
+
+N:125:of Free Action
+X:11:0 
+W:0:4:0:1000
+C:0:0:0:0
+T:31:0:99
+F:FREE_ACT | IGNORE_ACID | IGNORE_FIRE
+
+
+##### Basic Books #####
+
+N:141:(Fireproof)
+X:15:0 
+W:0:64:0:1000
+C:0:0:0:0
+T:90:0:3
+T:91:0:3
+T:92:0:3
+F:IRONMAN_ONLY | IGNORE_FIRE
+
+
+N:143:(Shattered)
+X:0:0 
+W:0:0:0:0
+C:5:5:0:0
+
+
+N:144:(Blasted)
+X:0:0 
+W:0:0:0:0
+C:0:0:10:0
+
+

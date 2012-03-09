@@ -1,0 +1,5 @@
+A minimal band
+
+Feedback and bug reports to Antoine (antoine.from.rgrd@gmail.com)
+
+Based on NPPAngband -  Copyright (c) 2003-2011 Jeff Greene and Diego Gonz['a]lez 
