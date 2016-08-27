@@ -4064,6 +4064,9 @@ static bool project_o(int who, int y, int x, int dam, int typ)
 				/* Ignore known objects */
 				if (object_known_p(o_ptr)) continue;
 
+				/* Minimal */
+				o_ptr->ident |= (IDENT_MENTAL);
+
 			  	/* Identify object and get squelch setting */
 				/* Note the first argument */
 			  	squelch = do_ident_item(-1, o_ptr);

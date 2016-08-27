@@ -778,7 +778,8 @@ static cptr act_description[ACT_MAX] =
 	"resist electricity (20+d20 turns)",
 	"resist fire (20+d20 turns)",
 	"resist cold (20+d20 turns)",
-	"resist poison (20+d20 turns)"
+	"resist poison (20+d20 turns)",
+	"mass identify"
 };
 
 /*

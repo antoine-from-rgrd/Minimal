@@ -2800,6 +2800,13 @@ static bool activate_object(object_type *o_ptr, int dir)
 				break;
 			}
 
+			case ACT_MASS_ID:
+			{
+				msg_format("Your %s glows bright yellow...", o_name);
+				if (!mass_identify(3)) return FALSE;
+				break;
+			}
+
 			case ACT_CURE_WOUNDS:
 			{
 				msg_format("Your %s radiates deep purple...", o_name);

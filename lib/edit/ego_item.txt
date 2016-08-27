@@ -115,6 +115,14 @@ T:34:0:99
 F:RES_DARK | RES_LIGHT | IGNORE_ACID
 
 
+N:7:of Protection
+X:10:0 
+W:5:2:0:1000
+C:0:0:20:0
+T:34:0:99
+F:RES_SHARD | IGNORE_ACID | IGNORE_ELEC | IGNORE_FIRE | IGNORE_COLD
+
+
 ##### Weapons #####
 
 

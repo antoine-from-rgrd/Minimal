@@ -2891,9 +2891,9 @@ static bool kind_is_good(int k_idx)
 		case TV_POTION:
 		{
 			if ((k_ptr->sval == SV_POTION_HEALING) ||
-				(k_ptr->sval == SV_POTION_RESTORATION) || 
-				(k_ptr->sval == SV_POTION_MIGHT) || 
-				(k_ptr->sval == SV_POTION_MAGIC) || 
+				(k_ptr->sval == SV_POTION_RESTORATION) ||
+				(k_ptr->sval == SV_POTION_MIGHT) ||
+				(k_ptr->sval == SV_POTION_MAGIC) ||
 				(k_ptr->sval == SV_POTION_YOUTH))
 		   	{
 				return (TRUE);

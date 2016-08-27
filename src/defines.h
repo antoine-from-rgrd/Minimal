@@ -1183,8 +1183,9 @@ enum
 #define ACT_RES_FIRE			52
 #define ACT_RES_COLD			53
 #define ACT_RES_POIS			54
+#define ACT_MASS_ID             55
 
-#define ACT_MAX                 55
+#define ACT_MAX                 56
 
 /*
  * HACK - define if the source contains the cleanup_angband() function.

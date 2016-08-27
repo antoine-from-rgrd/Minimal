@@ -1664,7 +1664,8 @@ P:0:1d1:0:0:18
 F:INT | DEX | CHR | SEARCH | SPEED
 F:RES_COLD | RES_LIGHT | RES_DARK | RES_BLIND | RES_SOUND
 F:RES_SHARD | LIGHT | SEE_INVIS | FREE_ACT | IGNORE_ACID
-F:IGNORE_ELEC | IGNORE_FIRE | IGNORE_COLD | HIDE_TYPE
+F:ACTIVATE | IGNORE_ELEC | IGNORE_FIRE | IGNORE_COLD | HIDE_TYPE
+A:MASS_ID:50:0
 D:A crown of massive gold, set with wondrous jewels of thought and
 D: warding, worn by the kings of ancient N['u]menor.
 

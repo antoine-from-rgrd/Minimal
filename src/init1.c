@@ -853,7 +853,8 @@ static cptr a_info_act[ACT_MAX] =
 	"RES_ELEC",
 	"RES_FIRE",
 	"RES_COLD",
-	"RES_POIS"
+	"RES_POIS",
+	"MASS_ID",
 };
 
 

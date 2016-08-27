@@ -959,7 +959,7 @@ D: also be used to fuel another lantern.
 N:130:Free Action
 G:":d
 I:40:0:0
-W:20:0:3:600
+W:20:0:3:1000
 P:0:0d0:0:0:0
 A:20/3
 F:FREE_ACT
@@ -1109,7 +1109,7 @@ G:_:d
 I:55:29:0
 W:50:0:50:2500
 P:0:1d2:0:0:0
-A:50/2:70/2
+A:50/2:70/4
 D:It destroys a circular area centered at you with a radius of 15
 D: squares, randomly placing new walls and floor space (stairs are
 D: immune).  All monsters and objects (excluding artifacts) are removed
@@ -1151,16 +1151,6 @@ W:5:0:10:500
 P:0:1d1:0:0:0
 A:5/2
 D:It attempts to confuse a single monster.
-
-
-N:224:Stinking Cloud
-G:-:d
-I:65:14:0
-W:5:0:10:300
-P:0:1d1:0:0:0
-A:5/2
-D:It shoots a radius-2 poison cloud that inflicts 12 points of damage at
-D: its center. 
 
 
 N:227:Lightning Bolts
@@ -1324,7 +1314,7 @@ G:!:d
 I:75:42:0
 W:25:0:4:300
 P:0:1d1:0:0:0
-A:25/1
+A:20/2:40/4
 F:EASY_KNOW
 D:It fixes the most drained of your stats. 
 
@@ -1375,7 +1365,7 @@ G:!:d
 I:75:29:0
 W:1:0:4:75
 P:0:1d1:0:0:0
-A:1/1:40/1
+A:1/1:40/2
 F:EASY_KNOW
 D:It hastes you (+10 to speed) for 15+1d25 turns (or 5 additional turns
 D: if you already are under the effect of a temporary haste
@@ -1428,7 +1418,7 @@ G:!:d
 I:75:63:0
 W:25:0:4:900
 P:0:1d1:0:0:0
-A:40/8
+A:40/8:70/8
 F:IGNORE_COLD | EASY_KNOW
 D:It grants you temporary resistance to fire, cold, acid and electricity for 10+1d10 turns.  Temporary resistance is cumulative
 D: with  permanent resistance, if one of your equipped items provides

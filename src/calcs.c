@@ -257,6 +257,7 @@ static void calc_mana(void)
 	/* Hack -- usually add one mana */
 	if (msp) msp++;
 
+
 	/* Process gloves for those disturbed by them */
 	if (cp_ptr->flags & CF_CUMBER_GLOVE)
 	{
@@ -310,6 +311,8 @@ static void calc_mana(void)
 		msp -= ((cur_wgt - max_wgt) / 10);
 	}
 
+
+	msp = (3 * msp) / 2; /* Minimal - more mana */
 
 	/* Mana can never be negative */
 	if (msp < 0) msp = 0;

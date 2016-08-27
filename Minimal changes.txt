@@ -39,5 +39,7 @@ OOD is less damaging and more expensive
 
 ## Other character features
 High Dex gives a Speed bonus
+Wis has more effect on saving throw
 Extra shots aren't as quick as they used to be
+Characters get 50% extra SP
 

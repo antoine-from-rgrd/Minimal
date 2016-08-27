@@ -5354,6 +5354,8 @@ void identify_and_squelch_pack(void)
 		/* Ignore known objects */
 		if (object_known_p(o_ptr)) continue;
 
+		o_ptr->ident |= (IDENT_MENTAL);
+
 		/* Identify it */
 		(void)do_ident_item(item, o_ptr);
 	}
@@ -5371,6 +5373,8 @@ void identify_and_squelch_pack(void)
 
 			/* Ignore known objects */
 			if (object_known_p(o_ptr)) break;
+
+			o_ptr->ident |= (IDENT_MENTAL);
 
 			/* Identify it and get the squelch setting */
 			squelch = do_ident_item(item, o_ptr);

@@ -1,17 +1,3 @@
-
-Stats have more effect on saving throw
-- Rogues gain stealth every second level (rather than every level)
-- 50% more SP for mages and priests
-- OOD weaker at low CL
-
-Make !speed a bit more rare, !restore more rare, _destruct more rare
-- !Resistance about 50% more common
-- !Restoration less common on deeper levels
-- Add a new shield ego (I'm tentatively thinking 'of protection', providing AC only)
-- Remove -StinkingCloud
-- No DSM sold in the armor store
-- "FA a bit more expensive
-- At least one deep artifact should have a Mass ID activation
 - Bugfixes: "Wands of confusion sometime, on the first attempt at confusing a (sleeping?) monster, give a positive message (foo looks confused) but the foo is not confused. Later attempts usually work and make the monster confused for several turns. ... 
 Scrolls of identify offer to identify some of my inventory that I don't think are needed, like spell books and my (average) lantern... 
 Slay Evil ammo exists but it doesn't seem to be able to be generated on mithril arrows/bolts " 
