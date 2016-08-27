@@ -948,7 +948,7 @@ I:39:1:0
 W:3:0:50:35
 P:0:1d1:0:0:0
 A:3/1
-F:IGNORE_FIRE
+F:IGNORE_FIRE | EASY_KNOW
 D:It is equippable as a light source with a radius of 2 squares.  It may
 D: also be used to fuel another lantern. 
 
@@ -1010,7 +1010,7 @@ F:RES_CONFU | IGNORE_ELEC
 
 N:148:Might
 G:=:d
-I:45:24:0
+I:45:1:0
 W:30:0:2:1000
 P:0:0d0:0:0:0
 A:30/3
@@ -1019,7 +1019,7 @@ F:STR | SUST_STR | CON | SUST_CON | HIDE_TYPE
 
 N:149:Magic
 G:=:d
-I:45:24:0
+I:45:2:0
 W:30:0:2:1000
 P:0:0d0:0:0:0
 A:30/3
@@ -1028,7 +1028,7 @@ F:INT | SUST_INT | WIS | SUST_WIS | HIDE_TYPE
 
 N:150:Youth
 G:=:d
-I:45:24:0
+I:45:3:0
 W:30:0:2:1000
 P:0:0d0:0:0:0
 A:30/3
@@ -1198,15 +1198,23 @@ A:15/2
 F:EASY_KNOW
 D:It detects all secret doors, stairs and traps in the immediate area. 
 
-
-N:242:Detect Monsters
+N:241:Detect Monsters
 G:-:d
-I:66:3:60
+I:66:2:60
 W:30:0:15:4000
 P:0:1d1:0:0:0
 A:30/2
 F:IGNORE_ELEC | EASY_KNOW
 D:It detects monsters nearby. 
+
+N:242:Recall
+G:-:d
+I:66:3:60
+W:50:0:15:4000
+P:0:1d1:0:0:0
+A:50/2
+F:IGNORE_ELEC | EASY_KNOW
+D:It returns you to town. 
 
 
 N:243:Light
@@ -1354,7 +1362,7 @@ D:It causes you to gain Dexterity and Charisma, or restores both if drained.
 N:320:Curing
 G:!:d
 I:75:9:100
-W:0:0:4:0
+W:0:0:4:100
 P:0:1d1:0:0:0
 A:0/1
 F:EASY_KNOW

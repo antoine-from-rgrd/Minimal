@@ -828,39 +828,6 @@ static void describe_item_activation(const object_type *o_ptr, char *random_name
 			return;
 		}
 	}
-
-	/* Now do the rings */
-	if (o_ptr->tval == TV_RING)
-	{
-		/* Branch on the sub-type */
-		switch (o_ptr->sval)
-		{
-			case SV_RING_ACID:
-			{
-				my_strcat(random_name, "acid resistance (20+d20 turns) and acid ball (70) every 50+d50 turns", max);
-				break;
-			}
-			case SV_RING_FLAMES:
-			{
-				my_strcat(random_name, "fire resistance (20+d20 turns) and fire ball (80) every 50+d50 turns", max);
-				break;
-			}
-			case SV_RING_ICE:
-			{
-				my_strcat(random_name, "cold resistance (20+d20 turns) and cold ball (75) every 50+d50 turns", max);
-				break;
-			}
-
-			case SV_RING_LIGHTNING:
-			{
-				my_strcat(random_name, "electricity resistance (20+d20 turns) and electricity ball (85) every 50+d50 turns", max);
-				break;
-			}
-		}
-
-		return;
-	}
-
 	/* Require dragon scale mail */
 	if ((o_ptr->tval != TV_DRAG_ARMOR) &&
 		(o_ptr->tval != TV_DRAG_SHIELD)) return;

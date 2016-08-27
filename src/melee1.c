@@ -1866,7 +1866,7 @@ int get_breath_dam(s16b hit_points, int gf_type, bool powerful)
 		case GF_POIS:
 		{
 			dam = hit_points / 3;
-			max_dam = 800;
+			max_dam = 600;
 			break;
 		}
 		case GF_PLASMA:
@@ -1888,7 +1888,7 @@ int get_breath_dam(s16b hit_points, int gf_type, bool powerful)
 		case GF_CONFUSION:
 		{
 			dam = hit_points / 6;
-			max_dam = 400;
+			max_dam = 300;
 			break;
 		}
 		case GF_SOUND:
@@ -1896,7 +1896,7 @@ int get_breath_dam(s16b hit_points, int gf_type, bool powerful)
 			if (powerful)
 			{
 				dam = hit_points / 4;
-				max_dam = 500;
+				max_dam = 300;
 			}
 			else
 			{
@@ -1908,7 +1908,7 @@ int get_breath_dam(s16b hit_points, int gf_type, bool powerful)
 		case GF_SHARD:
 		{
 			dam = hit_points / 6;
-			max_dam = 500;
+			max_dam = 400;
 			break;
 		}
 		case GF_INERTIA:
@@ -1916,7 +1916,7 @@ int get_breath_dam(s16b hit_points, int gf_type, bool powerful)
 			if (powerful)
 			{
 				dam = hit_points / 4;
-				max_dam = 400;
+				max_dam = 300;
 			}
 			else
 			{
@@ -1944,7 +1944,7 @@ int get_breath_dam(s16b hit_points, int gf_type, bool powerful)
 			if (powerful)
 			{
 				dam = hit_points / 3;
-				max_dam = 400;
+				max_dam = 300;
 			}
 			else
 			{
@@ -1956,26 +1956,26 @@ int get_breath_dam(s16b hit_points, int gf_type, bool powerful)
 		case GF_NEXUS:
 		{
 			dam = hit_points / 6;
-			max_dam = 450;
+			max_dam = 300;
 			break;
 		}
 		case GF_NETHER:
 		{
 			dam = hit_points / 6;
-			max_dam = 550;
+			max_dam = 450;
 			break;
 		}
 		case GF_CHAOS:
 		case GF_DISENCHANT:
 		{
 			dam = hit_points / 6;
-			max_dam = 500;
+			max_dam = 400;
 			break;
 		}
 		case GF_TIME:
 		{
 			dam = hit_points / 3;
-			if (powerful) max_dam = 400;
+			if (powerful) max_dam = 300;
 			else max_dam = 150;
 			break;
 		}

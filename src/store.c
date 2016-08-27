@@ -941,7 +941,7 @@ static bool store_service_aux(int store_num, s16b choice)
 			/* Get an item */
 			q = "Recharge which item? ";
 			s = "You have nothing to recharge.";
-			if (!get_item(&item, q, s, (USE_EQUIP))) return (FALSE);
+			if (!get_item(&item, q, s, (USE_EQUIP | USE_INVEN))) return (FALSE);
 
 			/*Got the item*/
 			o_ptr = &inventory[item];
@@ -4318,12 +4318,19 @@ static void store_examine(int oid)
 
 	entry_num = find_entry_type(&entry_type, oid);
 
+	screen_save();
+
+	/* Clear the screen */
+	Term_erase(0, 0, 255);
+	Term_gotoxy(0, 0);
+
 	/* Display the entry name and, if object, weight*/
 	if (entry_type == ENTRY_SERVICE)
 	{
 		strnfmt(file_name, sizeof(file_name), "town.txt");
 		strnfmt(service_name, sizeof(service_name), service_names[services_offered[entry_num]]);
 		show_file(format("%s#%s", file_name, service_name), NULL,  0, 0);
+		screen_load();
 		return;
 	}
 	else if (entry_type == ENTRY_QUEST)
@@ -4331,20 +4338,14 @@ static void store_examine(int oid)
 		strnfmt(file_name, sizeof(file_name), "quests.txt");
 		strnfmt(service_name, sizeof(service_name), quest_title[quests_offered[entry_num]]);
 		show_file(format("%s#%s", file_name, service_name), NULL,  0, 0);
+		screen_load();
 		return;
 	}
 
 	/* Get the actual object */
 	o_ptr = &st_ptr->stock[entry_num];
 
-	screen_save();
-
-	/* Describe it fully */
-	Term_erase(0, 0, 255);
-	Term_gotoxy(0, 0);
-
-	text_out_hook = text_out_to_screen;
-
+ 	text_out_hook = text_out_to_screen;
 
 	/* Show full info in most stores, but normal info in player home */
 	object_info_screen(o_ptr);

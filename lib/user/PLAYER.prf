@@ -106,7 +106,7 @@ X:show_piles
 X:center_player
 
 # Option 'Shimmer multi-colored things'
-Y:animate_flicker
+X:animate_flicker
 
 # Option 'Allow accents in output files'
 X:xchars_to_file
@@ -169,19 +169,22 @@ X:birth_force_small_lev
 Y:birth_connected_stairs
 
 # Option 'Birth: Disable quests'
-X:birth_no_quests
+Y:birth_no_quests
 
 # Option 'Birth: Disable player ghosts'
-X:birth_no_player ghosts
+Y:birth_no_player ghosts
 
 # Option 'Birth: Disable store services'
-X:birth_no_store_services
+Y:birth_no_store_services
 
 # Option 'Birth: Disable extra artifacts'
-X:birth_no_xtra_artifacts
+Y:birth_no_xtra_artifacts
 
 # Option 'Birth: Start with more money and no equipment'
 X:birth_money
+
+# Option 'Birth: Prevent unusual terrains or dungeons'
+Y:birth_simple_dungeons
 
 # Window 'Term-1', Flag 'Display inven/equip'
 W:1:0:0

@@ -1107,7 +1107,7 @@ void do_cmd_open(cmd_code code, cmd_arg args[])
 	else
 	{
 		/* Open the door */
-		more = do_cmd_open_aux(y, x);
+		more = do_cmd_open_aux(cy, cx);
 	}
 
 	/* Cancel repeat unless we may continue */
@@ -1709,7 +1709,7 @@ void do_cmd_disarm(cmd_code code, cmd_arg args[])
 	else
 	{
 		/* Disarm the trap */
-		more = do_cmd_disarm_aux(y, x, TRUE);
+		more = do_cmd_disarm_aux(cy, cx, TRUE);
 	}
 
 	/* Cancel repeat unless told not to */
@@ -2628,7 +2628,7 @@ void do_cmd_hold(cmd_code code, cmd_arg args[])
 	}
 
 	/* Handle "objects" */
-	py_pickup(TRUE);
+	py_pickup(always_pickup);
 
 	/* Hack -- enter a store if we are on one */
 	if (cave_shop_bold(p_ptr->py,p_ptr->px))

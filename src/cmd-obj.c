@@ -1302,13 +1302,9 @@ static bool read_scroll(object_type *o_ptr, bool *ident)
 	/* Analyze the scroll */
 	switch (o_ptr->sval)
 	{
-		case SV_SCROLL_DARKNESS:
+		case SV_SCROLL_DETECT_EVIL:
 		{
-			if (!p_ptr->state.resist_blind)
-			{
-				(void)inc_timed(TMD_BLIND, 3 + randint(5), TRUE);
-			}
-			if (unlight_area(10, 3)) *ident = TRUE;
+			if (detect(DETECT_RADIUS, DETECT_EVIL)) *ident = TRUE;
 			break;
 		}
 
@@ -2240,10 +2236,9 @@ static bool zap_rod(object_type *o_ptr, bool *ident, int dir)
 			break;
 		}
 
-		case SV_ROD_IDENTIFY:
+		case SV_ROD_DETECT_MONSTER:
 		{
-			*ident = TRUE;
-			if (!ident_spell()) used_charge = FALSE;
+			if (detect(DETECT_RADIUS, DETECT_MONSTERS)) *ident = TRUE;
 			break;
 		}
 
@@ -3160,52 +3155,6 @@ static bool activate_object(object_type *o_ptr, int dir)
 
 		/* Window stuff */
 		p_ptr->redraw |= (PR_INVEN | PR_EQUIP | PR_ITEMLIST);
-
-		/* Success */
-		return FALSE;
-	}
-
-	/* Hack -- some Rings can be activated for double resist and element ball */
-	if (o_ptr->tval == TV_RING)
-	{
-		/* Branch on the sub-type */
-		switch (o_ptr->sval)
-		{
-			case SV_RING_ACID:
-			{
-				fire_ball(GF_ACID, dir, 70, 2);
-				inc_timed(TMD_OPP_ACID, randint(20) + 20, TRUE);
-				o_ptr->timeout = rand_int(50) + 50;
-				break;
-			}
-
-			case SV_RING_FLAMES:
-			{
-				fire_ball(GF_FIRE, dir, 80, 2);
-				inc_timed(TMD_OPP_FIRE, randint(20) + 20, TRUE);
-				o_ptr->timeout = rand_int(50) + 50;
-				break;
-			}
-
-			case SV_RING_ICE:
-			{
-				fire_ball(GF_COLD, dir, 75, 2);
-				inc_timed(TMD_OPP_COLD, randint(20) + 20, TRUE);
-				o_ptr->timeout = rand_int(50) + 50;
-				break;
-			}
-
-			case SV_RING_LIGHTNING:
-			{
-				fire_ball(GF_ELEC, dir, 85, 2);
-				inc_timed(TMD_OPP_ELEC, randint(20) + 20, TRUE);
-				o_ptr->timeout = rand_int(50) + 50;
-				break;
-			}
-		}
-
-		/* Redraw stuff */
-		p_ptr->redraw |= (PR_EQUIP);
 
 		/* Success */
 		return FALSE;

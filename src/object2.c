@@ -1003,10 +1003,9 @@ static void a_m_aux_3(object_type *o_ptr, int level, int power)
 			switch (o_ptr->sval)
 			{
 				/* Strength, Constitution, Dexterity, Intelligence */
-				case SV_RING_STR:
-				case SV_RING_CON:
-				case SV_RING_DEX:
-				case SV_RING_INT:
+				case SV_RING_MIGHT:
+				case SV_RING_MAGIC:
+				case SV_RING_YOUTH:
 				{
 					/* Stat bonus */
 					o_ptr->pval = 1 + m_bonus(5 + (level / 35), level);
@@ -1017,14 +1016,14 @@ static void a_m_aux_3(object_type *o_ptr, int level, int power)
 					/* Cursed */
 					if (power < 0)
 					{
-						/* Broken */
-						o_ptr->ident |= (IDENT_BROKEN);
-
-						/* Cursed */
-						o_ptr->ident |= (IDENT_CURSED);
-
-						/* Reverse pval */
-						o_ptr->pval = 0 - (o_ptr->pval);
+//						/* Broken */
+//						o_ptr->ident |= (IDENT_BROKEN);
+//
+//						/* Cursed */
+//						o_ptr->ident |= (IDENT_CURSED);
+//
+//						/* Reverse pval */
+//						o_ptr->pval = 0 - (o_ptr->pval);
 					}
 
 					break;
@@ -1042,16 +1041,16 @@ static void a_m_aux_3(object_type *o_ptr, int level, int power)
 					/* Cursed Ring */
 					if (power < 0)
 					{
-						/* Broken */
-						o_ptr->ident |= (IDENT_BROKEN);
-
-						/* Cursed */
-						o_ptr->ident |= (IDENT_CURSED);
-
-						/* Reverse pval */
-						o_ptr->pval = 0 - (o_ptr->pval);
-
-						break;
+//						/* Broken */
+//						o_ptr->ident |= (IDENT_BROKEN);
+//
+//						/* Cursed */
+//						o_ptr->ident |= (IDENT_CURSED);
+//
+//						/* Reverse pval */
+//						o_ptr->pval = 0 - (o_ptr->pval);
+//
+//						break;
 					}
 
 					/* Rating boost for rings of speed that are not cursed */
@@ -1059,147 +1058,6 @@ static void a_m_aux_3(object_type *o_ptr, int level, int power)
 
 					/* Mention the item */
 					if (cheat_peek) object_mention(o_ptr);
-
-					break;
-				}
-
-				/* Searching */
-				case SV_RING_SEARCHING:
-				{
-					/* Bonus to searching */
-					o_ptr->pval = 1 + m_bonus(5, level);
-
-					/* Cursed */
-					if (power < 0)
-					{
-						/* Broken */
-						o_ptr->ident |= (IDENT_BROKEN);
-
-						/* Cursed */
-						o_ptr->ident |= (IDENT_CURSED);
-
-						/* Reverse pval */
-						o_ptr->pval = 0 - (o_ptr->pval);
-					}
-
-					break;
-				}
-
-				/* Searching */
-				case SV_RING_AGGRAVATION:
-				{
-					/* Cursed */
-					o_ptr->ident |= (IDENT_CURSED);
-
-					break;
-				}
-
-
-				/* Flames, Acid, Ice, Lightning */
-				case SV_RING_FLAMES:
-				case SV_RING_ACID:
-				case SV_RING_ICE:
-				case SV_RING_LIGHTNING:
-				{
-					/* Bonus to armor class */
-					o_ptr->to_a = 5 + randint(5) + m_bonus(10, level) + (level / 10);
-					break;
-				}
-
-				/* Weakness, Stupidity */
-				case SV_RING_WEAKNESS:
-				case SV_RING_STUPIDITY:
-				{
-					/* Broken */
-					o_ptr->ident |= (IDENT_BROKEN);
-
-					/* Cursed */
-					o_ptr->ident |= (IDENT_CURSED);
-
-					/* Penalize */
-					o_ptr->pval = 0 - (1 + m_bonus(5, level));
-
-					break;
-				}
-
-				/* WOE, Stupidity */
-				case SV_RING_WOE:
-				{
-					/* Broken */
-					o_ptr->ident |= (IDENT_BROKEN);
-
-					/* Cursed */
-					o_ptr->ident |= (IDENT_CURSED);
-
-					/* Penalize */
-					o_ptr->to_a = 0 - (5 + m_bonus(10, level));
-					o_ptr->pval = 0 - (1 + m_bonus(5, level));
-
-					break;
-				}
-
-				/* Ring of damage */
-				case SV_RING_DAMAGE:
-				{
-					/* Bonus to damage */
-					o_ptr->to_d = 5 + randint(3) + m_bonus(7, level) + (level / 10);
-
-					/* Cursed */
-					if (power < 0)
-					{
-						/* Broken */
-						o_ptr->ident |= (IDENT_BROKEN);
-
-						/* Cursed */
-						o_ptr->ident |= (IDENT_CURSED);
-
-						/* Reverse bonus */
-						o_ptr->to_d = 0 - (o_ptr->to_d);
-					}
-
-					break;
-				}
-
-				/* Ring of Accuracy */
-				case SV_RING_ACCURACY:
-				{
-					/* Bonus to hit */
-					o_ptr->to_h = 5 + randint(3) + m_bonus(7, level) + (level / 10);
-
-					/* Cursed */
-					if (power < 0)
-					{
-						/* Broken */
-						o_ptr->ident |= (IDENT_BROKEN);
-
-						/* Cursed */
-						o_ptr->ident |= (IDENT_CURSED);
-
-						/* Reverse tohit */
-						o_ptr->to_h = 0 - (o_ptr->to_h);
-					}
-
-					break;
-				}
-
-				/* Ring of Protection */
-				case SV_RING_PROTECTION:
-				{
-					/* Bonus to armor class */
-					o_ptr->to_a = 5 + randint(5) + m_bonus(10, level) + (level / 5);
-
-					/* Cursed */
-					if (power < 0)
-					{
-						/* Broken */
-						o_ptr->ident |= (IDENT_BROKEN);
-
-						/* Cursed */
-						o_ptr->ident |= (IDENT_CURSED);
-
-						/* Reverse toac */
-						o_ptr->to_a = 0 - (o_ptr->to_a);
-					}
 
 					break;
 				}
@@ -1214,15 +1072,15 @@ static void a_m_aux_3(object_type *o_ptr, int level, int power)
 					/* Cursed */
 					if (power < 0)
 					{
-						/* Broken */
-						o_ptr->ident |= (IDENT_BROKEN);
-
-						/* Cursed */
-						o_ptr->ident |= (IDENT_CURSED);
-
-						/* Reverse bonuses */
-						o_ptr->to_h = 0 - (o_ptr->to_h);
-						o_ptr->to_d = 0 - (o_ptr->to_d);
+//						/* Broken */
+//						o_ptr->ident |= (IDENT_BROKEN);
+//
+//						/* Cursed */
+//						o_ptr->ident |= (IDENT_CURSED);
+//
+//						/* Reverse bonuses */
+//						o_ptr->to_h = 0 - (o_ptr->to_h);
+//						o_ptr->to_d = 0 - (o_ptr->to_d);
 					}
 
 					break;
@@ -1234,140 +1092,7 @@ static void a_m_aux_3(object_type *o_ptr, int level, int power)
 
 		case TV_AMULET:
 		{
-			/* Analyze */
-			switch (o_ptr->sval)
-			{
-				/* Amulet of wisdom/charisma/infravision */
-				case SV_AMULET_WISDOM:
-				case SV_AMULET_CHARISMA:
-				case SV_AMULET_INFRAVISION:
-				{
-					/* Stat bonus */
-					o_ptr->pval = 1 + m_bonus(5 + (level / 35), level);
-
-					/*cut it off at 6*/
-					if (o_ptr->pval > 6) o_ptr->pval = 6;
-
-					/* Cursed */
-					if (power < 0)
-					{
-						/* Broken */
-						o_ptr->ident |= (IDENT_BROKEN);
-
-						/* Cursed */
-						o_ptr->ident |= (IDENT_CURSED);
-
-						/* Reverse bonuses */
-						o_ptr->pval = 0 - (o_ptr->pval);
-					}
-
-					break;
-				}
-
-				/* Amulet of searching */
-				case SV_AMULET_SEARCHING:
-				{
-					o_ptr->pval = randint(5) + m_bonus(5, level);
-
-					/* Cursed */
-					if (power < 0)
-					{
-						/* Broken */
-						o_ptr->ident |= (IDENT_BROKEN);
-
-						/* Cursed */
-						o_ptr->ident |= (IDENT_CURSED);
-
-						/* Reverse bonuses */
-						o_ptr->pval = 0 - (o_ptr->pval);
-					}
-
-					break;
-				}
-
-				/* Amulet of ESP -- never cursed */
-				case SV_AMULET_ESP:
-				{
-					o_ptr->pval = randint(5) + m_bonus(5, level);
-
-					break;
-				}
-
-				/* Amulet of the Magi -- never cursed */
-				case SV_AMULET_THE_MAGI:
-				{
-					o_ptr->pval = 1 + m_bonus(3, level);
-					o_ptr->to_a = randint(5) + m_bonus(5, level);
-
-					/* Boost the rating */
-					rating += 10;
-
-					/* Mention the item */
-					if (cheat_peek) object_mention(o_ptr);
-
-					break;
-				}
-
-				/* Amulet of Devotion -- never cursed */
-				case SV_AMULET_DEVOTION:
-				{
-					o_ptr->pval = 1 + m_bonus(3, level);
-
-					/* Boost the rating */
-					rating += 10;
-
-					/* Mention the item */
-					if (cheat_peek) object_mention(o_ptr);
-
-					break;
-				}
-
-				/* Amulet of Weaponmastery -- never cursed */
-				case SV_AMULET_WEAPONMASTERY:
-				{
-					o_ptr->to_h = 1 + m_bonus(4, level);
-					o_ptr->to_d = 1 + m_bonus(4, level);
-					o_ptr->pval = 1 + m_bonus(2, level);
-
-					/* Boost the rating */
-					rating += 10;
-
-					/* Mention the item */
-					if (cheat_peek) object_mention(o_ptr);
-
-					break;
-				}
-
-				/* Amulet of Trickery -- never cursed */
-				case SV_AMULET_TRICKERY:
-				{
-					o_ptr->pval = randint(1) + m_bonus(3, level);
-
-					/* Boost the rating */
-					rating += 10;
-
-					/* Mention the item */
-					if (cheat_peek) object_mention(o_ptr);
-
-					break;
-				}
-
-				/* Amulet of Doom -- always cursed */
-				case SV_AMULET_DOOM:
-				{
-					/* Broken */
-					o_ptr->ident |= (IDENT_BROKEN);
-
-					/* Cursed */
-					o_ptr->ident |= (IDENT_CURSED);
-
-					/* Penalize */
-					o_ptr->pval = 0 - (randint(5) + m_bonus(5, level));
-					o_ptr->to_a = 0 - (randint(5) + m_bonus(5, level));
-
-					break;
-				}
-			}
+			/* never cursed, never has a pval */
 
 			break;
 		}
@@ -2063,7 +1788,6 @@ static bool kind_is_armoury(int k_idx)
 		/* Armor -- Good unless damaged */
 		case TV_HARD_ARMOR:
 		{
-			if (allow_altered_inventory) return (TRUE);
 			if (k_ptr->sval == SV_METAL_SCALE_MAIL) return (TRUE);
 			if (k_ptr->sval == SV_CHAIN_MAIL) return (TRUE);
 			if (k_ptr->sval == SV_AUGMENTED_CHAIN_MAIL) return (TRUE);
@@ -2074,12 +1798,9 @@ static bool kind_is_armoury(int k_idx)
 		}
 		case TV_SOFT_ARMOR:
 		{
-			if (allow_altered_inventory) return (TRUE);
 			if (k_ptr->sval == SV_ROBE) return (TRUE);
 			if (k_ptr->sval == SV_SOFT_LEATHER_ARMOR) return (TRUE);
 			if (k_ptr->sval == SV_HARD_LEATHER_ARMOR) return (TRUE);
-			if (k_ptr->sval == SV_HARD_STUDDED_LEATHER) return (TRUE);
-			if (k_ptr->sval == SV_LEATHER_SCALE_MAIL) return (TRUE);
 			return(FALSE);
 		}
 
@@ -2557,12 +2278,9 @@ static bool kind_is_great(int k_idx)
 			return (FALSE);
 		}
 
-		/*scrolls of "*Acquirement*" are great*/
+		/*scrolls are not great*/
 		case TV_SCROLL:
 		{
-			if (k_ptr->sval == SV_SCROLL_STAR_ACQUIREMENT) return (TRUE);
-			if ((k_ptr->sval == SV_SCROLL_CREATE_RANDART) &&
-			    (!adult_no_xtra_artifacts))   return (TRUE);
 			return (FALSE);
 		}
 
@@ -3149,43 +2867,35 @@ static bool kind_is_good(int k_idx)
 			return (FALSE);
 		}
 
-		/* Rings -- Rings of Speed are good */
+		/* Rings -- are good */
 		case TV_RING:
 		{
-			if (k_ptr->sval == SV_RING_SPEED) return (TRUE);
-			return (FALSE);
+		  	return (TRUE);
 		}
 
 		/* Amulets -- Amulets are good*/
 		case TV_AMULET:
 
 		{
-		  	if (k_ptr->sval == SV_AMULET_THE_MAGI) return (TRUE);
-			if (k_ptr->sval == SV_AMULET_DEVOTION) return (TRUE);
-			if (k_ptr->sval == SV_AMULET_WEAPONMASTERY) return (TRUE);
-			if (k_ptr->sval == SV_AMULET_TRICKERY) return (TRUE);
-			return (FALSE);
+		  	return (TRUE);
 		}
 
-		/*scrolls of "*acquirement*" and "acquirement" are good*/
+		/*scrolls are not good*/
 		case TV_SCROLL:
 
 		{
-			if (k_ptr->sval == SV_SCROLL_ACQUIREMENT) return (TRUE);
-			if (k_ptr->sval == SV_SCROLL_STAR_ACQUIREMENT) return (TRUE);
-			if ((k_ptr->sval == SV_SCROLL_CREATE_RANDART) &&
-			    (!adult_no_xtra_artifacts))   return (TRUE);
 			return (FALSE);
 		}
 
-		/*the very powerful healing potions can be good*/
+		/* a few potions can be good*/
 		case TV_POTION:
 		{
-			if ((k_ptr->sval == SV_POTION_STAR_HEALING) ||
-				(k_ptr->sval == SV_POTION_LIFE))
+			if ((k_ptr->sval == SV_POTION_HEALING) ||
+				(k_ptr->sval == SV_POTION_RESTORATION) || 
+				(k_ptr->sval == SV_POTION_MIGHT) || 
+				(k_ptr->sval == SV_POTION_MAGIC) || 
+				(k_ptr->sval == SV_POTION_YOUTH))
 		   	{
-			    if (object_level > 85)
-
 				return (TRUE);
 			}
 			return (FALSE);

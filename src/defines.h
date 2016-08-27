@@ -128,7 +128,7 @@
  * Must be a multiple of PANEL_HGT
  * Must be less or equal to 256
  */
-#define MAX_DUNGEON_HGT		44
+#define MAX_DUNGEON_HGT		55
 
 /*
  * Number of grids in each dungeon (vertically)
@@ -1360,7 +1360,7 @@ enum
 #define SCAN_MACRO 45
 
 
-#define MAX_ITEMLIST 256
+#define MAX_ITEMLIST 1024
 
 
 

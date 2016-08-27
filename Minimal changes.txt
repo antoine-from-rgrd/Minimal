@@ -8,7 +8,7 @@ Measures to discourage heavy stair scumming
 
 ## Monster attacks
 Chaos attacks only have a 1 in 3 chance of making you hallucinate
-Max damage of elemental breaths is down to 1200
+Max damage of various breaths is reduced
 If you are very poisoned, you lose multiple HP per turn
 If your stats are badly drained, you may resist further draining
 When a monster melees you, nearby sleeping monsters who have LOS to you are likely to wake up
