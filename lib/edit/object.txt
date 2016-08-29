@@ -455,7 +455,7 @@ A:39/8
 F:RES_SOUND | IGNORE_ACID | RES_FEAR
 
 
-N:42:Multi-hued Dragon Scale Mail~
+N:42:Chromatic Dragon Scale Mail~
 G:[:v
 I:37:19:0
 W:43:0:140:2400

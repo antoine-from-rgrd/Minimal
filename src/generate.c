@@ -2076,8 +2076,8 @@ static bool vault_aux_orc(int r_idx)
 	/*no player ghosts*/
 	if (r_ptr->flags2 & (RF2_PLAYER_GHOST)) return (FALSE);
 
-	/* Hack -- Require "o" monsters */
-	if (!strchr("o", r_ptr->d_char)) return (FALSE);
+	/* Hack -- Require "o" or "k" monsters */
+	if (!strchr("ok", r_ptr->d_char)) return (FALSE);
 
 	/* Okay */
 	return (TRUE);
@@ -2097,8 +2097,8 @@ static bool vault_aux_troll(int r_idx)
 	/*no player ghosts*/
 	if (r_ptr->flags2 & (RF2_PLAYER_GHOST)) return (FALSE);
 
-	/* Hack -- Require "T" monsters */
-	if (!strchr("T", r_ptr->d_char)) return (FALSE);
+	/* Hack -- Require "T" or "o" monsters */
+	if (!strchr("To", r_ptr->d_char)) return (FALSE);
 
 	/* Okay */
 	return (TRUE);

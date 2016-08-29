@@ -1,4 +1,5 @@
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# end Dump options
+#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# end Dump options
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=# begin Dump options
 # *Warning!*  The lines below are an automatic dump.
 # Don't edit them; changes will be deleted and replaced automatically.
@@ -7,7 +8,7 @@
 #  options definitions
 
 # Option 'Rogue-like commands'
-Y:rogue_like_commands
+X:rogue_like_commands
 
 # Option 'Activate quick messages'
 Y:quick_messages
@@ -31,7 +32,7 @@ Y:floor_query_flag
 X:stack_force_notes
 
 # Option 'Merge discounts when stacking'
-Y:stack_force_costs
+X:stack_force_costs
 
 # Option 'Expand the power of the inscribe commands'
 Y:expand_inscribe
@@ -118,7 +119,7 @@ X:auto_more
 X:auto_display_lists
 
 # Option 'Player color indicates low hit points'
-X:hp_changes_color
+Y:hp_changes_color
 
 # Option 'Verify before descending from quest level'
 Y:verify_leave_quests
@@ -127,10 +128,10 @@ Y:verify_leave_quests
 Y:mark_squelch_items
 
 # Option 'Allow mouse clicks to move the player'
-X:mouse_movement
+Y:mouse_movement
 
 # Option 'Show mouse status line buttons'
-X:mouse_buttons
+Y:mouse_buttons
 
 # Option 'Notify on object recharge'
 X:notify_recharge

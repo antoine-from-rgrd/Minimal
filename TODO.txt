@@ -1,24 +1,7 @@
-- Bugfixes: "Wands of confusion sometime, on the first attempt at confusing a (sleeping?) monster, give a positive message (foo looks confused) but the foo is not confused. Later attempts usually work and make the monster confused for several turns. ... 
-Scrolls of identify offer to identify some of my inventory that I don't think are needed, like spell books and my (average) lantern... 
-Slay Evil ammo exists but it doesn't seem to be able to be generated on mithril arrows/bolts " 
-fix description of Elessar activation, perhaps other healing activations 
-multi-hued' DSM should be 'chromatic'. 
-
-- Townspeople carry less gold
-- Orcs a little less common relative to other monsters
-- Both liches and vampires may be a bit too strong
-- Balrogs summon too much
-- Troll pits should be removed (perhaps trolls could be in orc pits)
-- Rename rattlesnake to Black Mamba (and change color)
-Trolls and war trolls are the same brown colour to my eyes/screen.. 
-so are iron and mercury golems... 
-Ilthillia Dark elf sorceress is the same color as a thief.
-Iron golem a bit weak
-
-----------------
-
 Monsters that heal other monsters
 Make some monsters unusually susceptible to confusion/sleep
 Prune the list of vaults
+Systematic rework of pits
 - Graveyards are too tough
-- Are some monster bolt/balls too damaging?
+Are some monster bolt/balls too damaging?
+- Bugfix: "Wands of confusion sometime, on the first attempt at confusing a (sleeping?) monster, give a positive message (foo looks confused) but the foo is not confused. Later attempts usually work and make the monster confused for several turns. ... 
