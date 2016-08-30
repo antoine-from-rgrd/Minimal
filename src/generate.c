@@ -365,9 +365,9 @@ static struct
 	{LEV_THEME_DRAGON_ELEC,	FEAT_WATER},
 	{LEV_THEME_DRAGON_ELEC,	FEAT_WATER_H},
 	{LEV_THEME_DRAGON_COLD,	FEAT_ICE},
-	{LEV_THEME_TROLL,	FEAT_FSOIL},
-	{LEV_THEME_OGRE,	FEAT_FSOIL},
-	{LEV_THEME_OGRE,	FEAT_THICKET},
+	{LEV_THEME_WEIRD,	FEAT_FSOIL},
+	{LEV_THEME_KOBOLD,	FEAT_FSOIL},
+	{LEV_THEME_KOBOLD,	FEAT_THICKET},
 	/* Add entries for more themed levels if needed */
 };
 
@@ -1955,9 +1955,9 @@ static bool vault_aux_jelly(int r_idx)
 }
 
 /*
- * Helper function for "monster nest (kobolds, orcs, nagas and yeeks)"
+ * Helper function for "monster nest (reptiles)"
  */
-static bool vault_aux_kobold_yeek_orc_naga(int r_idx)
+static bool vault_aux_reptile(int r_idx)
 {
 	monster_race *r_ptr = &r_info[r_idx];
 
@@ -1968,8 +1968,8 @@ static bool vault_aux_kobold_yeek_orc_naga(int r_idx)
 	/*no player ghosts*/
 	if (r_ptr->flags2 & (RF2_PLAYER_GHOST)) return (FALSE);
 
-	/* Hack -- Require "k", "o", or "y" monsters */
-	if (!strchr("koyn", r_ptr->d_char)) return (FALSE);
+	/* Hack -- Require "n" or "J" monsters */
+	if (!strchr("Jn", r_ptr->d_char)) return (FALSE);
 
 	/* Okay */
 	return (TRUE);
@@ -2076,17 +2076,17 @@ static bool vault_aux_orc(int r_idx)
 	/*no player ghosts*/
 	if (r_ptr->flags2 & (RF2_PLAYER_GHOST)) return (FALSE);
 
-	/* Hack -- Require "o" or "k" monsters */
-	if (!strchr("ok", r_ptr->d_char)) return (FALSE);
+	/* Hack -- Require "o" or "C" monsters */
+	if (!strchr("oCB", r_ptr->d_char)) return (FALSE);
 
 	/* Okay */
 	return (TRUE);
 }
 
 /*
- * Helper function for "monster pit (troll)"
+ * Helper function for "monster pit (weird)"
  */
-static bool vault_aux_troll(int r_idx)
+static bool vault_aux_weird(int r_idx)
 {
 	monster_race *r_ptr = &r_info[r_idx];
 
@@ -2097,8 +2097,8 @@ static bool vault_aux_troll(int r_idx)
 	/*no player ghosts*/
 	if (r_ptr->flags2 & (RF2_PLAYER_GHOST)) return (FALSE);
 
-	/* Hack -- Require "T" or "o" monsters */
-	if (!strchr("To", r_ptr->d_char)) return (FALSE);
+	/* Hack -- Require weird monsters */
+	if (!strchr("ujXQHSe", r_ptr->d_char)) return (FALSE);
 
 	/* Okay */
 	return (TRUE);
@@ -2127,9 +2127,9 @@ static bool vault_aux_orc_ogre_troll_giant(int r_idx)
 
 
 /*
- * Helper function for "monster pit (coins)"
+ * Helper function for "monster pit (bugs)"
  */
-static bool vault_aux_coins(int r_idx)
+static bool vault_aux_bug(int r_idx)
 {
 	monster_race *r_ptr = &r_info[r_idx];
 
@@ -2140,17 +2140,17 @@ static bool vault_aux_coins(int r_idx)
 	/*no player ghosts*/
 	if (r_ptr->flags2 & (RF2_PLAYER_GHOST)) return (FALSE);
 
-	/* Hack -- Require "$" monsters */
-	if (!strchr("$", r_ptr->d_char)) return (FALSE);
+	/* Hack -- Require "aIS" monsters */
+	if (!strchr("aIS", r_ptr->d_char)) return (FALSE);
 
 	/* Okay */
 	return (TRUE);
 }
 
 /*
- * Helper function for "monster pit (ogre)"
+ * Helper function for "monster pit (kobold)"
  */
-static bool vault_aux_ogre(int r_idx)
+static bool vault_aux_kobold(int r_idx)
 {
 	monster_race *r_ptr = &r_info[r_idx];
 
@@ -2161,8 +2161,8 @@ static bool vault_aux_ogre(int r_idx)
 	/*no player ghosts*/
 	if (r_ptr->flags2 & (RF2_PLAYER_GHOST)) return (FALSE);
 
-	/* Hack -- Require "O" monsters */
-	if (!strchr("O", r_ptr->d_char)) return (FALSE);
+	/* Hack -- Require "k" monsters */
+	if (!strchr("k", r_ptr->d_char)) return (FALSE);
 
 	/* Okay */
 	return (TRUE);
@@ -2371,10 +2371,10 @@ static bool vault_aux_major_demon(int r_idx)
 /*set the get_mon_num_hook functional pointer based on theme*/
 void get_mon_hook(byte theme)
 {
-	if 		(theme == LEV_THEME_CREEPING_COIN)	get_mon_num_hook = vault_aux_coins;
+	if 		(theme == LEV_THEME_BUG)	get_mon_num_hook = vault_aux_bug;
 	else if (theme == LEV_THEME_ORC)			get_mon_num_hook = vault_aux_orc;
-	else if (theme == LEV_THEME_TROLL)			get_mon_num_hook = vault_aux_troll;
-	else if (theme == LEV_THEME_OGRE)			get_mon_num_hook = vault_aux_ogre;
+	else if (theme == LEV_THEME_WEIRD)			get_mon_num_hook = vault_aux_weird;
+	else if (theme == LEV_THEME_KOBOLD)			get_mon_num_hook = vault_aux_kobold;
 	else if (theme == LEV_THEME_HOUND)			get_mon_num_hook = vault_aux_hounds;
 	else if (theme == LEV_THEME_GIANT)			get_mon_num_hook = vault_aux_giant;
 	else if (theme == LEV_THEME_DRAGON_YOUNG)	get_mon_num_hook = vault_aux_youngdragon;
@@ -2419,7 +2419,7 @@ void get_mon_hook(byte theme)
 	else if (theme == LEV_THEME_DRAGON_ELEMENTAL) get_mon_num_hook = vault_aux_dragon_elem;
 	else if (theme == LEV_THEME_DRAGON_ANCIENT)	get_mon_num_hook = vault_aux_ancdragon;
 	else if (theme == LEV_THEME_JELLY)			get_mon_num_hook = vault_aux_jelly;
-	else if (theme == LEV_THEME_ORC_NAGA_YEEK_KOBOLD)	get_mon_num_hook = vault_aux_kobold_yeek_orc_naga;
+	else if (theme == LEV_THEME_REPTILE)	get_mon_num_hook = vault_aux_reptile;
 	else if (theme == LEV_THEME_ANIMAL)			get_mon_num_hook = vault_aux_animal;
 	else if (theme == LEV_THEME_HUMANOID)		get_mon_num_hook = vault_aux_humanoids;
 	else if (theme == LEV_THEME_DEMON_MINOR)	get_mon_num_hook = vault_aux_minor_demon;
@@ -2455,9 +2455,14 @@ byte get_nest_theme(int nestlevel, bool quest_theme)
 
 	whatnest += mindepth;
 
-	if ((whatnest <= 25)  && (nestlevel <= 35))
+	if (one_in_(10))		return LEV_THEME_UNDEAD;
+	else if (one_in_(10))		return LEV_THEME_HUMANOID;
+	else if (one_in_(10))		return LEV_THEME_ANIMAL;
+
+	else if ((whatnest <= 25)  && (nestlevel <= 35))
 	{
-		return LEV_THEME_ORC_NAGA_YEEK_KOBOLD;
+		if (one_in_(3))			return LEV_THEME_BUG;
+		else return LEV_THEME_REPTILE;
 	}
 
 	/*cave dwellers or young dragons*/
@@ -2506,18 +2511,20 @@ byte get_pit_theme(int pitlevel, bool quest_theme)
 
 	whatpit += mindepth;
 
+
 	/* Orc pit */
 	if ((whatpit <= 20) && (pitlevel <= 35))
 	{
-		return LEV_THEME_ORC;
+		if (one_in_(2))			return LEV_THEME_ORC;
+		else	return LEV_THEME_KOBOLD;
 	}
 
 	/*troll or ogre*/
 	else if ((whatpit <= 35)  && (pitlevel <= 45))
 	{
-		if (one_in_(3))			return LEV_THEME_CAVE_DWELLER;
-		else if (one_in_(2))	return LEV_THEME_TROLL;
-		else			return LEV_THEME_OGRE;
+		if (one_in_(2))			return LEV_THEME_CAVE_DWELLER;
+		else 	return LEV_THEME_WEIRD;
+
 	}
 	else if ((whatpit <= 50) && (effective_depth(p_ptr->depth) <= 60))
 	{
@@ -6600,9 +6607,9 @@ byte get_level_theme(s16b orig_theme_num, bool quest_level)
 	if ((theme_depth <= 20) && (orig_theme_num <= 28))
 	{
 		/*Coins, minor demons, Orcs, or a mixture of a couple monsters*/
-		if (one_in_(4))			return (LEV_THEME_ORC_NAGA_YEEK_KOBOLD);
+		if (one_in_(4))			return (LEV_THEME_REPTILE);
 		else if (one_in_(3))	return (LEV_THEME_DEMON_MINOR);
-		else if (one_in_(2))	return (LEV_THEME_CREEPING_COIN);
+		else if (one_in_(2))	return (LEV_THEME_BUG);
 		else					return (LEV_THEME_ORC);
 	}
 
@@ -6610,8 +6617,8 @@ byte get_level_theme(s16b orig_theme_num, bool quest_level)
 	{
 		/*Trolls or Ogres, or a mixture of cave dwellers*/
 		if (one_in_(3))			return (LEV_THEME_CAVE_DWELLER);
-		else if (one_in_(2))	return (LEV_THEME_TROLL);
-		else					return (LEV_THEME_OGRE);
+		else if (one_in_(2))	return (LEV_THEME_WEIRD);
+		else					return (LEV_THEME_KOBOLD);
 	}
 
 	else if ((theme_depth <= 50) && (orig_theme_num <= 60))

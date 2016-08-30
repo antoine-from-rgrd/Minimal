@@ -1,7 +1,5 @@
 Monsters that heal other monsters
 Make some monsters unusually susceptible to confusion/sleep
 Prune the list of vaults
-Systematic rework of pits
-- Graveyards are too tough
 Are some monster bolt/balls too damaging?
 - Bugfix: "Wands of confusion sometime, on the first attempt at confusing a (sleeping?) monster, give a positive message (foo looks confused) but the foo is not confused. Later attempts usually work and make the monster confused for several turns. ... 

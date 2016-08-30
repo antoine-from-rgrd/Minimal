@@ -630,10 +630,10 @@ enum
 
 
 #define LEV_THEME_HEAD				11
-#define LEV_THEME_CREEPING_COIN		0   /*creeping coins*/
+#define LEV_THEME_BUG		0   /*creeping coins*/
 #define LEV_THEME_ORC				1   /*orc*/
-#define LEV_THEME_TROLL				2	/*troll*/
-#define LEV_THEME_OGRE				3 	/*ogre*/
+#define LEV_THEME_WEIRD				2	/*troll*/
+#define LEV_THEME_KOBOLD				3 	/*kobold*/
 #define LEV_THEME_HOUND				4	/*hound*/
 #define LEV_THEME_GIANT				5	/*giant*/
 #define LEV_THEME_DRAGON_YOUNG		6	/*young dragon*/
@@ -646,7 +646,7 @@ enum
 #define LEV_THEME_DRAGON_MISC		13	/*dragon*/
 #define LEV_THEME_DRAGON_ANCIENT	14	/*ancient dragon*/
 #define LEV_THEME_JELLY				15	/*jelly*/
-#define LEV_THEME_ORC_NAGA_YEEK_KOBOLD	16 /*kobold, yeek, ork, and naga*/
+#define LEV_THEME_REPTILE	16 /*reptile */
 #define LEV_THEME_ANIMAL			17	/*animal*/
 #define LEV_THEME_HUMANOID			18	/*humanoid*/
 #define LEV_THEME_DEMON_MINOR		19	/*minor demon*/

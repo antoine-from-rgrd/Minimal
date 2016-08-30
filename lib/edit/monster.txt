@@ -2219,17 +2219,17 @@ D:A leader of a band of raiding orcs, he picks on hobbits.
 #D: being picked up.
 
 
-N:186:Black orc
-G:o:D
-I:110:12d10:20:36:20
-W:13:2:0:45
-B:HIT:HURT:3d4
-B:HIT:HURT:3d4
-F:MALE | FRIENDS | DROP_60 | OPEN_DOOR | BASH_DOOR
-F:ORC | EVIL | HURT_LIGHT
-S:SPELL_PCT_12 | POW_3
-S:ARROW
-D:He is a large orc with powerful arms and deep black skin.
+#N:186:Black orc
+#G:o:D
+#I:110:12d10:20:36:20
+#W:13:2:0:45
+#B:HIT:HURT:3d4
+#B:HIT:HURT:3d4
+#F:MALE | FRIENDS | DROP_60 | OPEN_DOOR | BASH_DOOR
+#F:ORC | EVIL | HURT_LIGHT
+#S:SPELL_PCT_12 | POW_3
+#S:ARROW
+#D:He is a large orc with powerful arms and deep black skin.
 
 
 #N:187:Ogre
@@ -2315,14 +2315,13 @@ D:A fast moving highly acidic jelly thing, that is eating away the floor
 D: it rests on.
 
 
-#N:193:Warg
-#G:C:s
-#I:120:8d8:20:20:40
-#W:14:2:0:40
-#B:BITE:HURT:1d8
-#F:FRIENDS | RAND_25 | BASH_DOOR | EVIL | ANIMAL
-#D:It is a large wolf with eyes full of cunning.
-
+N:193:Wolf
+G:C:s
+I:120:7d8:20:20:40
+W:13:2:0:40
+B:BITE:HURT:1d7
+F:FRIENDS | RAND_25 | BASH_DOOR | EVIL | ANIMAL
+D:It's here to feed on the unfit and sickly (in this case you).
 
 #N:194:Druid
 #G:p:G
@@ -5671,7 +5670,7 @@ D:It is a towering tornado of winds.
 
 
 #N:430:Colossus
-N:430:Stone Golem
+N:430:Stone golem
 G:g:G
 I:100:30d100:12:150:10
 W:36:4:0:850
