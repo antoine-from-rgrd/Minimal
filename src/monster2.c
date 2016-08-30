@@ -2891,7 +2891,7 @@ void calc_monster_speed(int y, int x)
 	}
 
 	/*factor in the hasting and slowing counters*/
-	if (m_ptr->m_timed[MON_TMD_FAST]) speed += 10;
+	if (m_ptr->m_timed[MON_TMD_FAST]) speed += 5;
 	if (m_ptr->m_timed[MON_TMD_SLOW]) speed -= 10;
 
 	/*set the speed and return*/

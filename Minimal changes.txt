@@ -5,6 +5,7 @@ Dungeon is now 50 levels
 Locked down some options
 Shrank the dungeon a bit
 Measures to discourage heavy stair scumming
+Tweaked nest and pit contents
 
 ## Monster attacks
 Chaos attacks only have a 1 in 3 chance of making you hallucinate
@@ -12,6 +13,7 @@ Max damage of various breaths is reduced
 If you are very poisoned, you lose multiple HP per turn
 If your stats are badly drained, you may resist further draining
 When a monster melees you, nearby sleeping monsters who have LOS to you are likely to wake up
+Hasted monsters are not as fast as before
 
 ## Items
 Restricted artifact list, and some artifacts modified 

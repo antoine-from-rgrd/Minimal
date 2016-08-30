@@ -2515,15 +2515,15 @@ byte get_pit_theme(int pitlevel, bool quest_theme)
 	/* Orc pit */
 	if ((whatpit <= 20) && (pitlevel <= 35))
 	{
-		if (one_in_(2))			return LEV_THEME_ORC;
-		else	return LEV_THEME_KOBOLD;
+		if (one_in_(3) && (pitlevel <= 20))			return LEV_THEME_KOBOLD;
+		else	return LEV_THEME_ORC;
 	}
 
 	/*troll or ogre*/
 	else if ((whatpit <= 35)  && (pitlevel <= 45))
 	{
-		if (one_in_(2))			return LEV_THEME_CAVE_DWELLER;
-		else 	return LEV_THEME_WEIRD;
+		if (one_in_(3))			return LEV_THEME_WEIRD;
+		else 	return LEV_THEME_CAVE_DWELLER;
 
 	}
 	else if ((whatpit <= 50) && (effective_depth(p_ptr->depth) <= 60))
