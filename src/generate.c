@@ -124,7 +124,7 @@
  * Dungeon generation values
  */
 
-#define DUN_UNUSUAL	60	/* Level/chance of unusual room */
+#define DUN_UNUSUAL	120	/* Level/chance of unusual room */
 #define DUN_DEST	35	/* 1/chance of having a destroyed level */
 #define DUN_FRACTAL	25	/* 1/chance of having a fractal level */
 #define SMALL_LEVEL 10	/* 1/chance of smaller size */
@@ -2651,6 +2651,11 @@ static void build_type_nest(int y0, int x0)
 		what[i] = get_mon_num(effective_depth(p_ptr->depth) +
 							  (is_quest_level ? PIT_NEST_QUEST_BOOST : NEST_LEVEL_BOOST), y1, x1);
 
+        /* Minimal - try for something easier */
+        if (!what[i]){
+		  what[i] = get_mon_num(effective_depth(p_ptr->depth), y1, x1);
+		}
+
 		/* Notice failure */
 		if (!what[i]) empty = TRUE;
 	}
@@ -2896,6 +2901,11 @@ static void build_type_pit(int y0, int x0)
 		/* Get a (hard) monster type */
 		what[i] = get_mon_num(effective_depth(p_ptr->depth) +
 							  (is_quest_level ? PIT_NEST_QUEST_BOOST : PIT_LEVEL_BOOST), y1, x1);
+
+        /* Minimal - try for something easier */
+        if (!what[i]){
+		  what[i] = get_mon_num(effective_depth(p_ptr->depth), y1, x1);
+		}
 
 		/* Notice failure */
 		if (!what[i]) empty = TRUE;
@@ -10113,7 +10123,7 @@ static bool cave_gen(void)
 			k = rand_int(100);
 
 			/* Attempt a very unusual room */
-			if (rand_int(DUN_UNUSUAL) < effective_depth(p_ptr->depth))
+			if (rand_int((DUN_UNUSUAL)*2)/3 < effective_depth(p_ptr->depth))
 			{
 				/* Type 8 -- Greater vault (8%) */
 				if ((k < 8) && !greater_vault && room_build(by, bx, 8))
