@@ -4172,7 +4172,7 @@ D: They have been hunted nearly to extinction by the High Elves.
 
 
 N:330:Mage
-G:p:r
+G:p:y
 I:110:15d8:20:40:10
 W:26:1:84:150
 B:HIT:HURT:2d5
