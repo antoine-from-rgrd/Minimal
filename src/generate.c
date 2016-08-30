@@ -124,7 +124,7 @@
  * Dungeon generation values
  */
 
-#define DUN_UNUSUAL	120	/* Level/chance of unusual room */
+#define DUN_UNUSUAL	150	/* Level/chance of unusual room */
 #define DUN_DEST	35	/* 1/chance of having a destroyed level */
 #define DUN_FRACTAL	25	/* 1/chance of having a fractal level */
 #define SMALL_LEVEL 10	/* 1/chance of smaller size */
@@ -10123,7 +10123,7 @@ static bool cave_gen(void)
 			k = rand_int(100);
 
 			/* Attempt a very unusual room */
-			if (rand_int((DUN_UNUSUAL)*2)/3 < effective_depth(p_ptr->depth))
+			if (rand_int(DUN_UNUSUAL/2) < effective_depth(p_ptr->depth))
 			{
 				/* Type 8 -- Greater vault (8%) */
 				if ((k < 8) && !greater_vault && room_build(by, bx, 8))
@@ -10132,13 +10132,13 @@ static bool cave_gen(void)
 					continue;
 				}
 
-				/* Type 7 -- Lesser vault (12%) */
-				if ((k < 20) && room_build(by, bx, 7)) continue;
+				/* Type 7 -- Lesser vault (16%) */
+				if ((k < 24) && room_build(by, bx, 7)) continue;
 
-				/* Type 6 -- Monster pit (15%) */
-				if ((k < 35) && room_build(by, bx, 6)) continue;
+				/* Type 6 -- Monster pit (13%) */
+				if ((k < 37) && room_build(by, bx, 6)) continue;
 
-				/* Type 5 -- Monster nest (15%) */
+				/* Type 5 -- Monster nest (13%) */
 				if ((k < 50) && room_build(by, bx, 5)) continue;
 			}
 
